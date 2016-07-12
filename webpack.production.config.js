@@ -1,8 +1,12 @@
 var path = require('path');
 var config = {
-  entry: path.resolve(__dirname, './main.js'),
+   entry: [
+    'babel-polyfill',
+    './src/style/base.less',
+   './src/main.js'
+   ],
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './src/dist'),
     filename: 'bundle.js'
   },
   module: {

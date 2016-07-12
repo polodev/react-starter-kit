@@ -1,18 +1,21 @@
+var path = require('path');
 var config = {
    entry: [
     'babel-polyfill',
-     './main.js'
+    './src/style/base.less',
+   './src/main.js'
    ],
 
    output: {
-      path:'./',
-      filename: 'index.js',
+    path: path.join(__dirname, '/src/'),
+    filename: 'index.js',
    },
    devtool: 'source-map',
-   devServer: {
-      inline: true,
-      port: 8080
-   },
+
+  devServer: {
+    contentBase: "./src",
+    port : 8080
+  },
 
    module: {
       loaders: [
@@ -20,10 +23,13 @@ var config = {
             test: /\.js?$/,
             exclude: /node_modules/,
             loader: 'babel',
-
             query: {
                presets: ['es2015', 'react']
             }
+         },
+         {
+          test: /\.less$/,
+          loader: "style!css!postcss-loader!less"
          }
       ]
    },
