@@ -14,6 +14,7 @@ var config = {
 
   devServer: {
     contentBase: "./src",
+    inline : true,
     port : 8080
   },
 
