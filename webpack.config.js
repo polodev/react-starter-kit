@@ -1,11 +1,14 @@
 var config = {
-   entry: './main.js',
+   entry: [
+    'babel-polyfill',
+     './main.js'
+   ],
 
    output: {
       path:'./',
       filename: 'index.js',
    },
-
+   devtool: 'source-map',
    devServer: {
       inline: true,
       port: 8080
@@ -23,7 +26,8 @@ var config = {
             }
          }
       ]
-   }
+   },
+   debug : true
 }
 
 module.exports = config;
